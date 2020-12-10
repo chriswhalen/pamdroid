@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Pamdroid</string>
+    <string name="channel_id">status</string>
+    <string name="channel_name">Status</string>
+    <string name="channel_description">Server status</string>
+    <string name="error_crypto">Encryption failed</string>
+    <string name="error_unrecognized">Fingerprint not recognized</string>
+    <string name="error_unavailable">Fingerprint not available</string>
+    <string name="key">key</string>
+    <string name="secret">secret</string>
+    <string name="text_authenticating">Authenticating</string>
+    <string name="text_port">Port</string>
+    <string name="text_retry">Retry</string>
+    <string name="text_stopped">Stopped</string>
+    <string name="text_starting">Starting</string>
+    <string name="text_start">Start</string>
+</resources>

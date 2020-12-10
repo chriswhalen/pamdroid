@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        applicationId "ca.chriswhalen.pamdroid"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation "com.github.JesusM:FingerprintManager:v2.0.2"
+    implementation "de.adorsys.android:securestoragelibrary:1.0.2"
+    implementation 'org.jboss.aerogear:aerogear-otp-java:1.0.0'
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

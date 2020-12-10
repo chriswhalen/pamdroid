@@ -1,43 +1,31 @@
-# PAM Android Fingerprint
+# Pamdroid
 
-PAM authentication module using Android fingerprint sensor
+Pamdroid is a fork of PAM Android Fingerprint from @jrandiny.
+It's a PAM module for authenticating from an Android fingerprint sensor.
 
-For stability please use release version
 
 ## Android
 
-Compile and install android app using gradle
+Open `Pamdroid` as an Android Studio project, then build it for your target.
+You can also compile the app directly by running `gradle` here.
 
-Compatible with Android 6.0 (API 23) and up  
-Tested with Android 8.0 (API 26)
+Pamdroid requires Android 6.0 - API 23 - or higher.
 
-## Desktop
 
-Tested on Ubuntu 18.04
+## Linux
 
-### Dependencies
+The Pamdroid desktop client requires Python 3.6 or higher,
+with the `pyotp` and `requests` packages.
 
-`sudo apt install python-pyotp python-pam python-requests`
+Ubuntu users can use `sudo apt install python-pyotp python-requests`.
 
-### Setting up
- 1. Copy `setup,py` and `main.py` to the same folder
- 2. Edit PAM configuration file (usually located under `/etc/pam.d/`)
- 3. Add auth entry (`auth <pam control flag> pam_python.so <location of main.py>`)
- 4. Run `setup.py -f` for first time setup (make sure the Android server is running)
+After starting the Android app,
+run `sudo init.py` to initialize your fingerprint.
 
-## Usage
+Edit your PAM configuration file (`/etc/pam.d/system-auth` should work)
+and add an entry like this:
 
-![PAM Android Fingerprint in action](action.gif)
+`auth sufficient pam_exec.so <path to auth.py>`
 
-## Roadmap
-
-- v0.2
-  - Faster phone detection
-  - Android cleanup
-  - Add setup error detection
-- v0.3
-  - Overhaul Android UI
-  - Add setting
-- v0.4
-  - Support for multiuser
-  - Better authentication method
+Future logins should now attempt to authenticate using your device,
+falling back to password login if the device isn't available.
