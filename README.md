@@ -20,12 +20,12 @@ with the `pyotp` and `requests` packages.
 Ubuntu users can use `sudo apt install python-pyotp python-requests`.
 
 After starting the Android app,
-run `sudo init.py` to initialize your fingerprint.
+run `pamdroid.py -i` to initialize your fingerprint.
 
 Edit your PAM configuration file (`/etc/pam.d/system-auth` should work)
 and add an entry like this:
 
-`auth sufficient pam_exec.so <path to auth.py>`
+`auth sufficient pam_exec.so quiet stdout <path to pamdroid.py>`
 
 Future logins should now attempt to authenticate using your device,
 falling back to password login if the device isn't available.
